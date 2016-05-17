@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       -= gui
+QT       += sql
 
 TARGET = lib
 TEMPLATE = lib
@@ -16,7 +17,9 @@ SOURCES += library.cpp \
     models/shipment.cpp \
     models/city.cpp \
     models/office.cpp \
-    models/distance.cpp
+    models/distance.cpp \
+    db/connection.cpp \
+    helpers/filehelper.cpp
 
 HEADERS += library.hpp\
         lib_global.hpp \
@@ -24,7 +27,9 @@ HEADERS += library.hpp\
     models/shipment.hpp \
     models/city.hpp \
     models/office.hpp \
-    models/distance.hpp
+    models/distance.hpp \
+    db/connection.hpp \
+    helpers/filehelper.hpp
 
 unix {
     target.path = /usr/lib
