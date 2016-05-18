@@ -35,6 +35,17 @@ public:
 signals:
 
 public slots:
+    CityList getAllCities();
+    CustomerList getAllCustomers();
+    DistanceList getAllDistances();
+    OfficeList getAllOffices();
+    ShipmentList getAllShipments();
+
+    City *getCity(int id);
+    Customer *getCustomer(int id);
+    Distance *getDistance(int id);
+    Office *getOffice(int id);
+    Shipment *getShipment(int id);
 };
 
 #endif // CONNECTION_HPP
