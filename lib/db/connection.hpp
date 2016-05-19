@@ -46,6 +46,12 @@ public slots:
     Distance *getDistance(int id);
     Office *getOffice(int id);
     Shipment *getShipment(int id);
+
+    City *updateCity(City *city);
+    Customer *updateCustomer(Customer *customer);
+    Distance *updateDistance(Distance *distance);
+    Office *updateOffice(Office *office);
+    Shipment *updateShipment(Shipment *shipment);
 };
 
 #endif // CONNECTION_HPP

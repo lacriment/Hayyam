@@ -11,11 +11,13 @@ Connection::Connection(QObject *parent) : QObject(parent)
     {
         Connection::m_db = QSqlDatabase::addDatabase("QSQLITE");
         m_db.setDatabaseName(db_filename);
-        qDebug() << "Database created successfully!";
-        QString q = helper.fileToString("database.sql");
         m_db.open();
-        qDebug() << q;
-        m_db.exec(q);
+        qDebug() << "Database created successfully!";
+        QStringList qList = helper.fileToString("../database.sql");
+        foreach (QString q, qList) {
+            qDebug() << q;
+            m_db.exec(q);
+        }
         seed();
     }
     else {
@@ -28,7 +30,7 @@ Connection::Connection(QObject *parent) : QObject(parent)
 void Connection::seed()
 {
    FileHelper helper;
-   m_db.exec(helper.fileToString("seeds.sql"));
+   //m_db.exec(helper.fileToString("seeds.sql"));
 }
 
 Connection *Connection::getConnection()
@@ -230,4 +232,30 @@ Shipment *Connection::getShipment(int id)
         shipments.append(s);
     }
     return shipments.first();
+}
+
+City *Connection::updateCity(City *city)
+{
+    QSqlQuery q;
+    return city;
+}
+
+Customer *Connection::updateCustomer(Customer *customer)
+{
+
+}
+
+Distance *Connection::updateDistance(Distance *distance)
+{
+
+}
+
+Office *Connection::updateOffice(Office *office)
+{
+
+}
+
+Shipment *Connection::updateShipment(Shipment *shipment)
+{
+
 }

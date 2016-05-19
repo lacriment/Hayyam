@@ -9,7 +9,7 @@ class FileHelper : public QObject
 public:
     explicit FileHelper(QObject *parent = 0);
     static QString fileToString(QString path);
-    bool fileExists(QString path);
+    static bool fileExists(QString path);
 
 signals:
 
