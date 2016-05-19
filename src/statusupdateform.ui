@@ -155,7 +155,43 @@
      </layout>
     </item>
     <item row="3" column="0">
-     <widget class="QComboBox" name="comboBox"/>
+     <widget class="QComboBox" name="comboBox">
+      <item>
+       <property name="text">
+        <string>Hazırlanıyor</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Şubeden yola çıktı.</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Gönderim yeri aktarmada.</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Alım yeri aktarmada.</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Alım ofisine ulaştı.</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Dağıtıma çıkarıldı.</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Teslim edildi.</string>
+       </property>
+      </item>
+     </widget>
     </item>
     <item row="4" column="0">
      <widget class="QPushButton" name="pushButton">

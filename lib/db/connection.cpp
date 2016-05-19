@@ -5,15 +5,14 @@ Connection *Connection::m_connection = NULL;
 
 Connection::Connection(QObject *parent) : QObject(parent)
 {
-    FileHelper helper;
     QString db_filename = "db.sqlite3";
-    if (!helper.fileExists("db.sqlite3"))
+    if (!FileHelper::fileExists("db.sqlite3"))
     {
         Connection::m_db = QSqlDatabase::addDatabase("QSQLITE");
         m_db.setDatabaseName(db_filename);
         m_db.open();
         qDebug() << "Database created successfully!";
-        QStringList qList = helper.fileToString("../database.sql");
+        QStringList qList = FileHelper::fileToString("../database.sql");
         foreach (QString q, qList) {
             qDebug() << q;
             m_db.exec(q);
@@ -29,8 +28,7 @@ Connection::Connection(QObject *parent) : QObject(parent)
 
 void Connection::seed()
 {
-    FileHelper helper;
-    //m_db.exec(helper.fileToString("seeds.sql"));
+
 }
 
 Connection *Connection::getConnection()
