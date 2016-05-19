@@ -18,6 +18,8 @@ public:
 private slots:
     void on_btn_find_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::StatusUpdateForm *ui;
 };
