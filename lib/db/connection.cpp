@@ -233,6 +233,8 @@ Shipment *Connection::getShipment(int id)
         s->setReceivingOffice(getOffice(q.value(11).toInt()));
         shipments.append(s);
     }
+    if (shipments.isEmpty())
+        return new Shipment();
     return shipments.first();
 }
 

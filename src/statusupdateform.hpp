@@ -15,6 +15,9 @@ public:
     explicit StatusUpdateForm(QWidget *parent = 0);
     ~StatusUpdateForm();
 
+private slots:
+    void on_btn_find_clicked();
+
 private:
     Ui::StatusUpdateForm *ui;
 };
