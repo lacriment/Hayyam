@@ -3,7 +3,10 @@
 
 #include "../lib/helpers/filehelper.hpp"
 #include "../lib/db/connection.hpp"
+
 #include <QDebug>
+
+#include "statusupdateform.hpp"
 
 App::App(QWidget *parent) :
     QMainWindow(parent),
@@ -11,9 +14,16 @@ App::App(QWidget *parent) :
 {
     ui->setupUi(this);
     Connection::getConnection();
+    //qDebug() << Connection::getShipment(1)->getId();
 }
 
 App::~App()
 {
     delete ui;
+}
+
+void App::on_btn_updateStatus_clicked()
+{
+    StatusUpdateForm *form = new StatusUpdateForm();
+    form->show();
 }

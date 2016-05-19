@@ -15,6 +15,9 @@ public:
     explicit App(QWidget *parent = 0);
     ~App();
 
+private slots:
+    void on_btn_updateStatus_clicked();
+
 private:
     Ui::App *ui;
 };
