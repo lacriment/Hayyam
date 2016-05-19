@@ -9,7 +9,7 @@ FileHelper::FileHelper(QObject *parent) : QObject(parent)
 
 }
 
-QString FileHelper::fileToString(QString path)
+QStringList FileHelper::fileToString(QString path)
 {
     QFile inputFile(path);
     QString text;
@@ -19,7 +19,7 @@ QString FileHelper::fileToString(QString path)
        text = in.readAll();
        inputFile.close();
     }
-    return text;
+    return text.replace(QRegExp("[\\n|\\t]"), "").split(";");
 }
 
 bool FileHelper::fileExists(QString path) {
