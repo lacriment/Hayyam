@@ -29,8 +29,8 @@ Connection::Connection(QObject *parent) : QObject(parent)
 
 void Connection::seed()
 {
-   FileHelper helper;
-   //m_db.exec(helper.fileToString("seeds.sql"));
+    FileHelper helper;
+    //m_db.exec(helper.fileToString("seeds.sql"));
 }
 
 Connection *Connection::getConnection()
@@ -234,28 +234,79 @@ Shipment *Connection::getShipment(int id)
     return shipments.first();
 }
 
-City *Connection::updateCity(City *city)
+City *Connection::updateCity(City *c)
 {
     QSqlQuery q;
-    return city;
+    q.prepare("update cities set name = ? where id = ?");
+    q.bindValue(0, c->getName());
+    q.bindValue(1, c->getId());
+    q.exec();
+    return c;
 }
 
-Customer *Connection::updateCustomer(Customer *customer)
+Customer *Connection::updateCustomer(Customer *c)
 {
-
+    QSqlQuery q;
+    q.prepare("update customers set tc = ?, name = ?, surname = ?,\
+              phone = ?, city_id = ?, address = ? where id = ?"\
+                                                              );
+    q.bindValue(0, c->getTc());
+    q.bindValue(1, c->getName());
+    q.bindValue(2, c->getSurname());
+    q.bindValue(3, c->getPhone());
+    q.bindValue(4, c->getCity()->getId());
+    q.bindValue(5, c->getAddress());
+    q.bindValue(6, c->getId());
+    q.exec();
+    return c;
 }
 
-Distance *Connection::updateDistance(Distance *distance)
+Distance *Connection::updateDistance(Distance *d)
 {
-
+    QSqlQuery q;
+    q.prepare("update distances set first_office_id = ?, second_office_id = ?, \
+              value = ? where id = ?"\
+                                    );
+    q.bindValue(0, d->getFirstOffice()->getId());
+    q.bindValue(1, d->getSecondOffice()->getId());
+    q.bindValue(2, d->getValue());
+    q.bindValue(3, d->getId());
+    q.exec();
+    return d;
 }
 
-Office *Connection::updateOffice(Office *office)
+Office *Connection::updateOffice(Office *o)
 {
-
+    QSqlQuery q;
+    q.prepare("update offices set name = ?, city_id = ?, address = ? where id = ?");
+    q.bindValue(0, o->getName());
+    q.bindValue(1, o->getCity()->getId());
+    q.bindValue(2, o->getAddress());
+    q.bindValue(3, o->getId());
+    q.exec();
+    return o;
 }
 
-Shipment *Connection::updateShipment(Shipment *shipment)
+Shipment *Connection::updateShipment(Shipment *s)
 {
-
+    QSqlQuery q;
+    q.prepare("update shipments set length = ?, width = ?, height = ?,\
+              weight = ?, sending_customer_id = ?, receiving_customer_id = ?,\
+              payment_type = ?, amount = ?, status = ?, sending_office_id = ?, \
+              receiving_office_id = ? where id = ?"\
+                                                  );
+    q.bindValue(0, s->getLength());
+    q.bindValue(1, s->getWeight());
+    q.bindValue(2, s->getHeight());
+    q.bindValue(3, s->getWeight());
+    q.bindValue(4, s->getSendingCustomer()->getId());
+    q.bindValue(5, s->getReceivingCustomer()->getId());
+    q.bindValue(6, s->getPaymentType());
+    q.bindValue(7, s->getAmount());
+    q.bindValue(8, s->getStatus());
+    q.bindValue(9, s->getSendingOffice()->getId());
+    q.bindValue(10, s->getReceivingOffice()->getId());
+    q.bindValue(11, s->getId());
+    q.exec();
+    return s;
 }
