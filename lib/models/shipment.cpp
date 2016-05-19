@@ -146,5 +146,8 @@ void Shipment::setReceivingOffice(Office *receivingOffice)
 
 Shipment::Shipment(QObject *parent) : QObject(parent)
 {
-    
+    this->m_sendingCustomer = NULL;
+    this->m_receivingCustomer = NULL;
+    this->m_sendingOffice= NULL;
+    this->m_receivingOffice= NULL;
 }

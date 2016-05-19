@@ -86,5 +86,5 @@ void Customer::setCity(City *city)
 
 Customer::Customer(QObject *parent) : QObject(parent)
 {
-
+    this->m_city = NULL;
 }

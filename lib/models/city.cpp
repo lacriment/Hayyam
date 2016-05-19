@@ -26,5 +26,5 @@ void City::setName(const QString &value)
 
 City::City(QObject *parent) : QObject(parent)
 {
-    
+
 }
