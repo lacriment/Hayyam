@@ -14,7 +14,6 @@ App::App(QWidget *parent) :
 {
     ui->setupUi(this);
     Connection::getConnection();
-    //qDebug() << Connection::getShipment(1)->getId();
 }
 
 App::~App()

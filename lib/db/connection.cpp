@@ -14,7 +14,7 @@ Connection::Connection(QObject *parent) : QObject(parent)
         qDebug() << "Database created successfully!";
         QStringList qList = FileHelper::fileToString("../database.sql");
         foreach (QString q, qList) {
-            qDebug() << q;
+            //qDebug() << q;
             m_db.exec(q);
         }
         seed();
@@ -28,7 +28,11 @@ Connection::Connection(QObject *parent) : QObject(parent)
 
 void Connection::seed()
 {
-
+    QStringList qList = FileHelper::fileToString("../seeds.sql");
+    foreach (QString q, qList) {
+        //qDebug() << q;
+        m_db.exec(q);
+    }
 }
 
 Connection *Connection::getConnection()
