@@ -45,7 +45,7 @@ double Shipment::getAmount() const
     return m_amount;
 }
 
-int Shipment::getStatus() const
+QString Shipment::getStatus() const
 {
     return m_status;
 }
@@ -123,7 +123,7 @@ void Shipment::setAmount(double amount)
     amountChanged(m_amount);
 }
 
-void Shipment::setStatus(int status)
+void Shipment::setStatus(QString status)
 {
     if (m_status == status) return;
     m_status = status;

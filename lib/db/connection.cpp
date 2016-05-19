@@ -129,7 +129,7 @@ ShipmentList Connection::getAllShipments()
         s->setReceivingCustomer(getCustomer(q.value(6).toInt()));
         s->setPaymentType(q.value(7).toInt());
         s->setAmount(q.value(8).toDouble());
-        s->setStatus(q.value(9).toInt());
+        s->setStatus(q.value(9).toString());
         s->setSendingOffice(getOffice(q.value(10).toInt()));
         s->setReceivingOffice(getOffice(q.value(11).toInt()));
         shipments.append(s);
@@ -228,7 +228,7 @@ Shipment *Connection::getShipment(int id)
         s->setReceivingCustomer(getCustomer(q.value(6).toInt()));
         s->setPaymentType(q.value(7).toInt());
         s->setAmount(q.value(8).toDouble());
-        s->setStatus(q.value(9).toInt());
+        s->setStatus(q.value(9).toString());
         s->setSendingOffice(getOffice(q.value(10).toInt()));
         s->setReceivingOffice(getOffice(q.value(11).toInt()));
         shipments.append(s);

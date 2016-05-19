@@ -21,7 +21,7 @@ private:
     Customer *m_receivingCustomer;
     int m_paymentType;
     double m_amount;
-    int m_status;
+    QString m_status;
     Office *m_sendingOffice;
     Office *m_receivingOffice;
 
@@ -37,7 +37,7 @@ public:
     Q_PROPERTY(Customer* receivingCustomer READ getReceivingCustomer WRITE setReceivingCustomer NOTIFY receivingCustomerChanged)
     Q_PROPERTY(int paymentType READ getPaymentType WRITE setPaymentType NOTIFY paymentTypeChanged)
     Q_PROPERTY(double amount READ getAmount WRITE setAmount NOTIFY amountChanged)
-    Q_PROPERTY(int status READ getStatus WRITE setStatus NOTIFY statusChanged)
+    Q_PROPERTY(QString status READ getStatus WRITE setStatus NOTIFY statusChanged)
     Q_PROPERTY(Office* sendingOffice READ getSendingOffice WRITE setSendingOffice NOTIFY sendingOfficeChanged)
     Q_PROPERTY(Office* receivingOffice READ getReceivingOffice WRITE setReceivingOffice NOTIFY receivingOfficeChanged)
 
@@ -50,7 +50,7 @@ public:
     Customer *getReceivingCustomer() const;
     int getPaymentType() const;
     double getAmount() const;
-    int getStatus() const;
+    QString getStatus() const;
     Office *getSendingOffice() const;
     Office *getReceivingOffice() const;
 
@@ -64,7 +64,7 @@ signals:
     void receivingCustomerChanged(Customer *newReceivingCustomer);
     void paymentTypeChanged(int newPaymentType);
     void amountChanged(double newAmount);
-    void statusChanged(int newStatus);
+    void statusChanged(QString newStatus);
     void sendingOfficeChanged(Office *newSendingOffice);
     void receivingOfficeChanged(Office *newReceivingOffice);
 
@@ -78,7 +78,7 @@ public slots:
     void setReceivingCustomer(Customer *receivingCustomer);
     void setPaymentType(int paymentType);
     void setAmount(double amount);
-    void setStatus(int status);
+    void setStatus(QString status);
     void setSendingOffice(Office *sendingOffice);
     void setReceivingOffice(Office *receivingOffice);
 };
