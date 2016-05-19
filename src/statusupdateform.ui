@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>287</width>
-    <height>293</height>
+    <width>321</width>
+    <height>309</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,16 +16,6 @@
   <layout class="QGridLayout" name="gridLayout_3">
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout_2">
-     <item row="0" column="0">
-      <widget class="QLineEdit" name="txt_trackingCode">
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="placeholderText">
-        <string>Takip Kodu</string>
-       </property>
-      </widget>
-     </item>
      <item row="2" column="0">
       <layout class="QGridLayout" name="gridLayout">
        <item row="1" column="2">
@@ -148,7 +138,13 @@
       </layout>
      </item>
      <item row="4" column="0">
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="btn_onayla">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
        <property name="text">
         <string>Onayla</string>
        </property>
@@ -156,13 +152,35 @@
      </item>
      <item row="1" column="0">
       <widget class="QPushButton" name="btn_find">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
        <property name="text">
         <string>Ara</string>
        </property>
       </widget>
      </item>
+     <item row="0" column="0">
+      <widget class="QLineEdit" name="txt_trackingCode">
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="placeholderText">
+        <string>Takip Kodu</string>
+       </property>
+      </widget>
+     </item>
      <item row="3" column="0">
       <widget class="QComboBox" name="cb_status">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
        <item>
         <property name="text">
          <string>Hazırlanıyor</string>
@@ -224,6 +242,19 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QPushButton" name="btn_exit">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Kapat</string>
        </property>
       </widget>
      </item>

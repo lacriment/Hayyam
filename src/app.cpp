@@ -32,3 +32,8 @@ void App::on_btn_updateStatus_clicked()
     StatusUpdateForm *form = new StatusUpdateForm();
     form->show();
 }
+
+void App::on_btn_exit_clicked()
+{
+    this->close();
+}

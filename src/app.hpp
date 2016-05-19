@@ -18,6 +18,8 @@ public:
 private slots:
     void on_btn_updateStatus_clicked();
 
+    void on_btn_exit_clicked();
+
 private:
     Ui::App *ui;
 };
