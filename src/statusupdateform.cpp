@@ -21,7 +21,7 @@ void StatusUpdateForm::on_btn_find_clicked()
     Shipment *s = new Shipment();
     int trackingCode = ui->txt_trackingCode->text().toInt();
     s = Connection::getConnection()->getShipment(trackingCode);
-    if (s->getAmount()) {
+    if (s->getSendingCustomer() != NULL) {
         ui->lbl_sender->setText(s->getSendingCustomer()->getName());
         ui->lbl_receiver->setText(s->getReceivingCustomer()->getName());
         ui->lbl_status->setText(s->getStatus());
@@ -31,9 +31,9 @@ void StatusUpdateForm::on_btn_find_clicked()
         ui->lbl_done->setText("Gönderi bulunamadı!");
         ui->lbl_sender->setText("");
         ui->lbl_receiver->setText("");
-        return;
+        ui->lbl_status->setText("");
+        delete s;
     }
-    delete s;
 }
 
 void StatusUpdateForm::on_pushButton_clicked()
