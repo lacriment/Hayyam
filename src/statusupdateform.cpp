@@ -3,6 +3,7 @@
 
 #include "../lib/db/connection.hpp"
 #include "../lib/models/shipment.hpp"
+#include "../lib/helpers/stringhelper.hpp"
 
 StatusUpdateForm::StatusUpdateForm(QWidget *parent) :
     QWidget(parent),
@@ -22,8 +23,8 @@ void StatusUpdateForm::on_btn_find_clicked()
     int trackingCode = ui->txt_trackingCode->text().toInt();
     s = Connection::getConnection()->getShipment(trackingCode);
     if (s->getSendingCustomer() != NULL) {
-        ui->lbl_sender->setText(s->getSendingCustomer()->getName() + " " + s->getSendingCustomer()->getSurname());
-        ui->lbl_receiver->setText(s->getReceivingCustomer()->getName() + " " + s->getReceivingCustomer()->getSurname());
+        ui->lbl_sender->setText(StringHelper::concatStrWithWhitespace({s->getSendingCustomer()->getName(), s->getSendingCustomer()->getSurname()}));
+        ui->lbl_receiver->setText(StringHelper::concatStrWithWhitespace({s->getReceivingCustomer()->getName(), s->getReceivingCustomer()->getSurname()}));
         ui->lbl_status->setText(s->getStatus());
         ui->lbl_done->setText("Gönderi bulundu!");
     }

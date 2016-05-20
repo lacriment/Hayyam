@@ -14,12 +14,6 @@ App::App(QWidget *parent) :
 {
     ui->setupUi(this);
     Connection::getConnection();
-    qDebug() << Connection::getConnection()->getShipment(1)->getAmount();
-    qDebug() << Connection::getConnection()->getShipment(2)->getAmount();
-    qDebug() << Connection::getConnection()->getShipment(3)->getAmount();
-    qDebug() << Connection::getConnection()->getShipment(5)->getAmount();
-    qDebug() << Connection::getConnection()->getShipment(4)->getAmount();
-    qDebug() << Connection::getConnection()->getShipment(3)->getAmount();
 }
 
 App::~App()

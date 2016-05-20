@@ -19,7 +19,8 @@ SOURCES += library.cpp \
     models/office.cpp \
     models/distance.cpp \
     db/connection.cpp \
-    helpers/filehelper.cpp
+    helpers/filehelper.cpp \
+    helpers/stringhelper.cpp
 
 HEADERS += library.hpp\
         lib_global.hpp \
@@ -29,7 +30,8 @@ HEADERS += library.hpp\
     models/office.hpp \
     models/distance.hpp \
     db/connection.hpp \
-    helpers/filehelper.hpp
+    helpers/filehelper.hpp \
+    helpers/stringhelper.hpp
 
 unix {
     target.path = /usr/lib
