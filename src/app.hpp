@@ -24,6 +24,8 @@ private slots:
 
     void on_btn_help_clicked();
 
+    void on_btn_customerInfo_clicked();
+
 private:
     Ui::App *ui;
 };

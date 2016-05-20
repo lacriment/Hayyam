@@ -269,6 +269,13 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>txt_trackingCode</tabstop>
+  <tabstop>btn_find</tabstop>
+  <tabstop>cb_status</tabstop>
+  <tabstop>btn_onayla</tabstop>
+  <tabstop>btn_exit</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

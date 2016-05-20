@@ -10,6 +10,7 @@
 #include "statusupdateform.hpp"
 #include "aboutform.hpp"
 #include "helpform.hpp"
+#include "customermanagementform.hpp"
 
 App::App(QWidget *parent) :
     QMainWindow(parent),
@@ -44,5 +45,11 @@ void App::on_btn_about_clicked()
 void App::on_btn_help_clicked()
 {
     HelpForm *form = new HelpForm();
+    form->show();
+}
+
+void App::on_btn_customerInfo_clicked()
+{
+    CustomerManagementForm *form = new CustomerManagementForm();
     form->show();
 }

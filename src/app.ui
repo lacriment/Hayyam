@@ -95,7 +95,7 @@ Kargo Yönetim Sistemi</string>
          </size>
         </property>
         <property name="text">
-         <string>Müşteri Bilgileri</string>
+         <string>Müşteri Yönetimi</string>
         </property>
        </widget>
       </item>
