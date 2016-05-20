@@ -23,6 +23,7 @@ public:
         output.remove(output.length() - 1, 1);
         return output;
     }
+    static QString flattenStringList(QStringList qslist);
 };
 
 #endif // STRINGHELPER_HPP

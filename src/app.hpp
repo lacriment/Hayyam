@@ -20,6 +20,8 @@ private slots:
 
     void on_btn_exit_clicked();
 
+    void on_btn_about_clicked();
+
 private:
     Ui::App *ui;
 };

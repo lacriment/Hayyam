@@ -2,11 +2,13 @@
 #include "ui_app.h"
 
 #include "../lib/helpers/filehelper.hpp"
+#include "../lib/helpers/stringhelper.hpp"
 #include "../lib/db/connection.hpp"
 
 #include <QDebug>
 
 #include "statusupdateform.hpp"
+#include "aboutform.hpp"
 
 App::App(QWidget *parent) :
     QMainWindow(parent),
@@ -30,4 +32,10 @@ void App::on_btn_updateStatus_clicked()
 void App::on_btn_exit_clicked()
 {
     this->close();
+}
+
+void App::on_btn_about_clicked()
+{
+    AboutForm *form = new AboutForm();
+    form->show();
 }
