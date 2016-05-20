@@ -26,5 +26,6 @@ void City::setName(const QString &value)
 
 City::City(QObject *parent) : QObject(parent)
 {
-
+    this->m_id = 0;
+    this->m_name = "";
 }

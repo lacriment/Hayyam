@@ -51,6 +51,8 @@ void Distance::setValue(double value)
 
 Distance::Distance(QObject *parent) : QObject(parent)
 {
-    this->m_firstOffice = NULL;
-    this->m_secondOffice = NULL;
+    this->m_id = 0;
+    this->m_firstOffice = new Office;
+    this->m_secondOffice = new Office;
+    this->m_value = 0;
 }

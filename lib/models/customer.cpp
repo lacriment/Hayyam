@@ -7,22 +7,22 @@ int Customer::getId() const
 
 QString Customer::getTc() const
 {
-    return m_Tc;
+    return m_tc;
 }
 
 QString Customer::getName() const
 {
-    return m_Name;
+    return m_name;
 }
 
 QString Customer::getSurname() const
 {
-    return m_Surname;
+    return m_surname;
 }
 
 QString Customer::getPhone() const
 {
-    return m_Phone;
+    return m_phone;
 }
 
 City *Customer::getCity() const
@@ -32,7 +32,7 @@ City *Customer::getCity() const
 
 QString Customer::getAddress() const
 {
-    return m_Address;
+    return m_address;
 }
 
 void Customer::setId(int value)
@@ -44,37 +44,37 @@ void Customer::setId(int value)
 
 void Customer::setTc(const QString &value)
 {
-    if (m_Tc == value) return;
-    m_Tc = value;
-    tcChanged(m_Tc);
+    if (m_tc == value) return;
+    m_tc = value;
+    tcChanged(m_tc);
 }
 
 void Customer::setName(const QString &value)
 {
-    if (m_Name == value) return;
-    m_Name = value;
-    nameChanged(m_Name);
+    if (m_name == value) return;
+    m_name = value;
+    nameChanged(m_name);
 }
 
 void Customer::setSurname(const QString &value)
 {
-    if (m_Surname == value) return;
-    m_Surname = value;
-    surnameChanged(m_Surname);
+    if (m_surname == value) return;
+    m_surname = value;
+    surnameChanged(m_surname);
 }
 
 void Customer::setPhone(const QString &value)
 {
-    if (m_Phone == value) return;
-    m_Phone = value;
-    phoneChanged(m_Phone);
+    if (m_phone == value) return;
+    m_phone = value;
+    phoneChanged(m_phone);
 }
 
 void Customer::setAddress(const QString &value)
 {
-    if (m_Address == value) return;
-    m_Address = value;
-    addressChanged(m_Address);
+    if (m_address == value) return;
+    m_address = value;
+    addressChanged(m_address);
 }
 
 void Customer::setCity(City *city)
@@ -86,5 +86,11 @@ void Customer::setCity(City *city)
 
 Customer::Customer(QObject *parent) : QObject(parent)
 {
-    this->m_city = NULL;
+    this->m_Id = 0;
+    this->m_tc = "";
+    this->m_name = "";
+    this->m_surname = "";
+    this->m_phone = "";
+    this->m_address = "";
+    this->m_city = new City;
 }

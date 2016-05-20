@@ -12,12 +12,12 @@ class Customer : public QObject
 
 private:
     int m_Id;
-    QString m_Tc;
-    QString m_Name;
-    QString m_Surname;
-    QString m_Phone;
+    QString m_tc;
+    QString m_name;
+    QString m_surname;
+    QString m_phone;
     City *m_city;
-    QString m_Address;
+    QString m_address;
 
 public:
     explicit Customer(QObject *parent = 0);

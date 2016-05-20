@@ -50,5 +50,8 @@ void Office::setAddress(const QString &address)
 
 Office::Office(QObject *parent) : QObject(parent)
 {
-    this->m_city = NULL;
+    this->m_id = 0;
+    this->m_name = "";
+    this->m_address = "";
+    this->m_city = new City;
 }
