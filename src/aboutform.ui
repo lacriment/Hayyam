@@ -6,27 +6,33 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>500</width>
+    <height>350</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Hakkında</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::RightToLeft</enum>
   </property>
   <property name="sizeGripEnabled">
    <bool>false</bool>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
-    <widget class="QPlainTextEdit" name="plainTextEdit">
-     <property name="font">
-      <font>
-       <family>Lucida Sans</family>
-       <pointsize>10</pointsize>
-      </font>
+    <widget class="QTextEdit" name="txt_about"/>
+   </item>
+   <item row="2" column="0">
+    <widget class="QPushButton" name="pushButton">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
      </property>
-     <property name="plainText">
-      <string/>
+     <property name="text">
+      <string>Tamam</string>
      </property>
     </widget>
    </item>
