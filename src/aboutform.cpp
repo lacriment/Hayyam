@@ -18,7 +18,7 @@ AboutForm::~AboutForm()
     delete ui;
 }
 
-void AboutForm::on_pushButton_clicked()
+void AboutForm::on_btn_ok_clicked()
 {
     this->close();
 }

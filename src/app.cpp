@@ -9,6 +9,7 @@
 
 #include "statusupdateform.hpp"
 #include "aboutform.hpp"
+#include "helpform.hpp"
 
 App::App(QWidget *parent) :
     QMainWindow(parent),
@@ -37,5 +38,11 @@ void App::on_btn_exit_clicked()
 void App::on_btn_about_clicked()
 {
     AboutForm *form = new AboutForm();
+    form->show();
+}
+
+void App::on_btn_help_clicked()
+{
+    HelpForm *form = new HelpForm();
     form->show();
 }

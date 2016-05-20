@@ -16,7 +16,7 @@ public:
     ~AboutForm();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_btn_ok_clicked();
 
 private:
     Ui::AboutForm *ui;

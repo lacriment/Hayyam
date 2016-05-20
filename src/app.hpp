@@ -22,6 +22,8 @@ private slots:
 
     void on_btn_about_clicked();
 
+    void on_btn_help_clicked();
+
 private:
     Ui::App *ui;
 };

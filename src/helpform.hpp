@@ -15,6 +15,9 @@ public:
     explicit HelpForm(QWidget *parent = 0);
     ~HelpForm();
 
+private slots:
+    void on_btn_ok_clicked();
+
 private:
     Ui::HelpForm *ui;
 };

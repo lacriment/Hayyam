@@ -15,15 +15,18 @@ TEMPLATE = app
 SOURCES += main.cpp\
         app.cpp \
     statusupdateform.cpp \
-    aboutform.cpp
+    aboutform.cpp \
+    helpform.cpp
 
 HEADERS  += app.hpp \
     statusupdateform.hpp \
-    aboutform.hpp
+    aboutform.hpp \
+    helpform.hpp
 
 FORMS    += app.ui \
     statusupdateform.ui \
-    aboutform.ui
+    aboutform.ui \
+    helpform.ui
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../lib/release/ -llib
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../lib/debug/ -llib
