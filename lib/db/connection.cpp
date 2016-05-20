@@ -1,5 +1,7 @@
 #include "connection.hpp"
+
 #include "../helpers/filehelper.hpp"
+#include "../helpers/stringhelper.hpp"
 
 Connection *Connection::m_connection = NULL;
 
@@ -313,4 +315,37 @@ Shipment *Connection::updateShipment(Shipment *s)
     q.bindValue(11, s->getId());
     q.exec();
     return s;
+}
+
+CustomerList Connection::getCustomers(QString value)
+{
+    QSqlQuery q;
+    q.prepare("select * from customers where id = ? or tc like ?\
+              or name like ? or surname like ? or phone like ?\
+              or city_id = ? or address like ?"\
+                                 );
+    q.bindValue(0, value.toInt()); // id
+    q.bindValue(1, StringHelper::sqlHasLike(value)); // tc
+    q.bindValue(2, StringHelper::sqlHasLike(value)); // name
+    q.bindValue(3, StringHelper::sqlHasLike(value)); // surname
+    q.bindValue(4, StringHelper::sqlHasLike(value)); // phone
+    q.bindValue(5, StringHelper::sqlHasLike(value)); // city_id
+    q.bindValue(6, StringHelper::sqlHasLike(value)); // address
+    q.exec();
+    qDebug() << q.lastQuery();
+    CustomerList customers;
+    while (q.next()) {
+        Customer *c = new Customer();
+        c->setId(q.value(0).toInt());
+        c->setTc(q.value(1).toString());
+        c->setName(q.value(2).toString());
+        c->setSurname(q.value(3).toString());
+        c->setPhone(q.value(4).toString());
+        c->setCity(getCity(q.value(5).toInt()));
+        c->setAddress(q.value(6).toString());
+        customers.append(c);
+    }
+    if (customers.isEmpty())
+        customers.append(new Customer);
+    return customers;
 }

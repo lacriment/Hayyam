@@ -52,6 +52,8 @@ public slots:
     Distance *updateDistance(Distance *d);
     Office *updateOffice(Office *o);
     Shipment *updateShipment(Shipment *s);
+
+    CustomerList getCustomers(QString value);
 };
 
 #endif // CONNECTION_HPP
