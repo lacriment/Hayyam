@@ -375,7 +375,22 @@ DistanceList Connection::getDistances()
 
 OfficeList Connection::getOffices(QString value)
 {
-
+    QSqlQuery q;
+    q.prepare("select * from offices where name like ?");
+    q.bindValue(0, StringHelper::sqlHasLike(value));
+    q.exec();
+    OfficeList offices;
+    while (q.next()) {
+        Office *o = new Office();
+        o->setId(q.value(0).toInt());
+        o->setName(q.value(1).toString());
+        o->setCity(getCity(q.value(2).toInt()));
+        o->setAddress(q.value(3).toString());
+        offices.append(o);
+    }
+    if (offices.isEmpty())
+        offices.append(new Office);
+    return offices;
 }
 
 ShipmentList Connection::getShipments(QString value)
