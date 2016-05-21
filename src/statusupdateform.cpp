@@ -30,9 +30,9 @@ void StatusUpdateForm::on_btn_find_clicked()
     }
     else {
         ui->lbl_done->setText("Gönderi bulunamadı!");
-        ui->lbl_sender->setText("");
-        ui->lbl_receiver->setText("");
-        ui->lbl_status->setText("");
+        ui->lbl_sender->clear();
+        ui->lbl_receiver->clear();
+        ui->lbl_status->clear();
     }
     delete s;
 }
