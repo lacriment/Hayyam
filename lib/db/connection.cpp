@@ -370,7 +370,9 @@ CustomerList Connection::getCustomers(QString value)
 
 DistanceList Connection::getDistances()
 {
-
+    DistanceList distances;
+    // TO DO
+    return distances;
 }
 
 OfficeList Connection::getOffices(QString value)
@@ -393,34 +395,102 @@ OfficeList Connection::getOffices(QString value)
     return offices;
 }
 
-ShipmentList Connection::getShipments(QString value)
+ShipmentList Connection::getShipments()
 {
-
+    ShipmentList shipments;
+    // TO DO
+    return shipments;
 }
 
 
 City *Connection::createCity(City *c)
 {
-
+    QSqlQuery q;
+    q.prepare("insert into cities (name) values (?)");
+    q.bindValue(0, c->getName());
+    if (q.exec()){
+        return c;
+    }
+    else {
+        return new City;
+    }
 }
 
 Customer *Connection::createCustomer(Customer *c)
 {
-
+    QSqlQuery q;
+    q.prepare("insert into customers (tc, name, surname, phone, city_id, address)\
+              values(?, ?, ?, ?, ?, ?) "\
+              );
+    q.bindValue(0, c->getTc());
+    q.bindValue(1, c->getName());
+    q.bindValue(2, c->getSurname());
+    q.bindValue(3, c->getPhone());
+    q.bindValue(4, c->getCity()->getId());
+    q.bindValue(5, c->getAddress());
+    if (q.exec()) {
+        return c;
+    }
+    else {
+        return new Customer;
+    }
 }
 
 Distance *Connection::createDistance(Distance *d)
 {
-
+    QSqlQuery q;
+    q.prepare("insert into distances (first_office_id, second_office_id, value)\
+              values(?, ?, ?)"\
+              );
+    q.bindValue(0, d->getFirstOffice()->getId());
+    q.bindValue(1, d->getSecondOffice()->getId());
+    q.bindValue(2, d->getValue());
+    if (q.exec()) {
+        return d;
+    }
+    else {
+        return new Distance;
+    }
 }
 
 Office *Connection::createOffice(Office *o)
 {
-
+    QSqlQuery q;
+    q.prepare("insert into offices (name, city_id, address) values (?, ?, ?)");
+    q.bindValue(0, o->getName());
+    q.bindValue(1, o->getCity()->getId());
+    q.bindValue(2, o->getAddress());
+    if (q.exec()) {
+        return o;
+    }
+    else {
+        return new Office;
+    }
 }
 
 Shipment *Connection::createShipment(Shipment *s)
 {
-
+    QSqlQuery q;
+    q.prepare("insert into shipments (length, width, height, weight,\
+              sending_customer_id, receiving_customer_id, payment_type,\
+              amount, status, sending_office_id, receiving_office_id)"\
+            );
+    q.bindValue(0, s->getLength());
+    q.bindValue(1, s->getWidth());
+    q.bindValue(2, s->getHeight());
+    q.bindValue(3, s->getWeight());
+    q.bindValue(4, s->getSendingCustomer()->getId());
+    q.bindValue(5, s->getReceivingCustomer()->getId());
+    q.bindValue(6, s->getPaymentType());
+    q.bindValue(7, s->getAmount());
+    q.bindValue(8, s->getStatus());
+    q.bindValue(9, s->getSendingOffice()->getId());
+    q.bindValue(10, s->getReceivingOffice()->getId());
+    if (q.exec()) {
+        return s;
+    }
+    else {
+        return new Shipment;
+    }
 }
 
