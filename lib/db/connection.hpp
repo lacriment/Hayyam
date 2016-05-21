@@ -53,7 +53,17 @@ public slots:
     Office *updateOffice(Office *o);
     Shipment *updateShipment(Shipment *s);
 
+    CityList getCities(QString value);
     CustomerList getCustomers(QString value);
+    DistanceList getDistances();
+    OfficeList getOffices(QString value);
+    ShipmentList getShipments(QString value);
+
+    City *createCity(City *c);
+    Customer *createCustomer(Customer *c);
+    Distance *createDistance(Distance *d);
+    Office *createOffice(Office *o);
+    Shipment *createShipment(Shipment *s);
 };
 
 #endif // CONNECTION_HPP

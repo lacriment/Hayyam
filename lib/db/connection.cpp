@@ -317,6 +317,11 @@ Shipment *Connection::updateShipment(Shipment *s)
     return s;
 }
 
+CityList Connection::getCities(QString value)
+{
+
+}
+
 CustomerList Connection::getCustomers(QString value)
 {
     QSqlQuery q;
@@ -349,3 +354,45 @@ CustomerList Connection::getCustomers(QString value)
         customers.append(new Customer);
     return customers;
 }
+
+DistanceList Connection::getDistances()
+{
+
+}
+
+OfficeList Connection::getOffices(QString value)
+{
+
+}
+
+ShipmentList Connection::getShipments(QString value)
+{
+
+}
+
+
+City *Connection::createCity(City *c)
+{
+
+}
+
+Customer *Connection::createCustomer(Customer *c)
+{
+
+}
+
+Distance *Connection::createDistance(Distance *d)
+{
+
+}
+
+Office *Connection::createOffice(Office *o)
+{
+
+}
+
+Shipment *Connection::createShipment(Shipment *s)
+{
+
+}
+

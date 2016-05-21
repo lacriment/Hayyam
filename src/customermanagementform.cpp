@@ -4,6 +4,8 @@
 #include "../lib/db/connection.hpp"
 #include "../lib/models/customer.hpp"
 
+#include "customercreationform.hpp"
+
 #include <QTableWidgetItem>
 
 CustomerManagementForm::CustomerManagementForm(QWidget *parent) :
@@ -52,4 +54,10 @@ void CustomerManagementForm::on_btn_search_clicked()
 void CustomerManagementForm::on_btn_exit_clicked()
 {
     this->close();
+}
+
+void CustomerManagementForm::on_btn_new_clicked()
+{
+    CustomerCreationForm *form = new CustomerCreationForm();
+    form->show();
 }

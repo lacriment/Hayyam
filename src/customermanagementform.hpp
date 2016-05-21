@@ -20,6 +20,8 @@ private slots:
 
     void on_btn_exit_clicked();
 
+    void on_btn_new_clicked();
+
 private:
     Ui::CustomerManagementForm *ui;
 };
