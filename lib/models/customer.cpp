@@ -1,4 +1,5 @@
 #include "customer.hpp"
+#include "../db/connection.hpp"
 
 int Customer::getId() const
 {

@@ -1,21 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>CustomerCreationForm</class>
- <widget class="QDialog" name="CustomerCreationForm">
+ <class>CustomerEditForm</class>
+ <widget class="QDialog" name="CustomerEditForm">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>536</width>
-    <height>421</height>
+    <width>597</width>
+    <height>487</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Yeni Müşteri</string>
+   <string>Müşteri Bilgileri</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout">
+     <item row="4" column="1">
+      <widget class="QComboBox" name="cb_city">
+       <property name="minimumSize">
+        <size>
+         <width>250</width>
+         <height>25</height>
+        </size>
+       </property>
+       <item>
+        <property name="text">
+         <string>Şehir Seçiniz...</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="txt_phone">
+       <property name="minimumSize">
+        <size>
+         <width>250</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="placeholderText">
+        <string>Telefon</string>
+       </property>
+      </widget>
+     </item>
      <item row="1" column="1">
       <widget class="QLineEdit" name="txt_surname">
        <property name="minimumSize">
@@ -31,6 +75,73 @@
         <string>Soyisim</string>
        </property>
       </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLabel" name="lbl_status">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Lucida Sans</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>İşleminizi onaylayın.</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="txt_name">
+       <property name="minimumSize">
+        <size>
+         <width>250</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="placeholderText">
+        <string>İsim</string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QPushButton" name="btn_cancel">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Çıkış</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_save">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Kaydet</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item row="3" column="0">
       <spacer name="horizontalSpacer">
@@ -61,119 +172,8 @@
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
-      <widget class="QComboBox" name="cb_city">
-       <property name="minimumSize">
-        <size>
-         <width>250</width>
-         <height>25</height>
-        </size>
-       </property>
-       <item>
-        <property name="text">
-         <string>Şehir Seçiniz...</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-     <item row="7" column="1">
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <item>
-        <widget class="QPushButton" name="btn_cancel">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>25</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>İptal</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="btn_save">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>25</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Kaydet</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="6" column="1">
-      <widget class="QLabel" name="lbl_status">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <family>Lucida Sans</family>
-         <pointsize>10</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>İşleminizi onaylayın.</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QLineEdit" name="txt_phone">
-       <property name="minimumSize">
-        <size>
-         <width>250</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="placeholderText">
-        <string>Telefon</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="2">
-      <spacer name="horizontalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="0" column="1">
-      <widget class="QLineEdit" name="txt_name">
-       <property name="minimumSize">
-        <size>
-         <width>250</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="placeholderText">
-        <string>İsim</string>
-       </property>
-      </widget>
-     </item>
      <item row="5" column="1">
-      <widget class="QPlainTextEdit" name="txt_address"/>
+      <widget class="QTextEdit" name="txt_address"/>
      </item>
     </layout>
    </item>
@@ -185,7 +185,6 @@
   <tabstop>txt_tc</tabstop>
   <tabstop>txt_phone</tabstop>
   <tabstop>cb_city</tabstop>
-  <tabstop>txt_address</tabstop>
   <tabstop>btn_save</tabstop>
   <tabstop>btn_cancel</tabstop>
  </tabstops>

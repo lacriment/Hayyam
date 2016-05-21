@@ -22,6 +22,8 @@ private slots:
 
     void on_btn_new_clicked();
 
+    void on_btn_edit_clicked();
+
 private:
     Ui::CustomerManagementForm *ui;
 };

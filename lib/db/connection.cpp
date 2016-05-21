@@ -16,7 +16,6 @@ Connection::Connection(QObject *parent) : QObject(parent)
         qDebug() << "Database created successfully!";
         QStringList qList = FileHelper::fileToString("../database.sql");
         foreach (QString q, qList) {
-            //qDebug() << q;
             m_db.exec(q);
         }
         seed();
@@ -32,7 +31,6 @@ void Connection::seed()
 {
     QStringList qList = FileHelper::fileToString("../seeds.sql");
     foreach (QString q, qList) {
-        //qDebug() << q;
         m_db.exec(q);
     }
 }
@@ -350,7 +348,6 @@ CustomerList Connection::getCustomers(QString value)
     q.bindValue(5, StringHelper::sqlHasLike(value)); // city_id
     q.bindValue(6, StringHelper::sqlHasLike(value)); // address
     q.exec();
-    qDebug() << q.lastQuery();
     CustomerList customers;
     while (q.next()) {
         Customer *c = new Customer();

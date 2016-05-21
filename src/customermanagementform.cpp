@@ -4,7 +4,7 @@
 #include "../lib/db/connection.hpp"
 #include "../lib/models/customer.hpp"
 
-#include "customercreationform.hpp"
+#include "customereditform.hpp"
 
 #include <QTableWidgetItem>
 
@@ -25,10 +25,21 @@ void CustomerManagementForm::on_btn_search_clicked()
     QString keyword = ui->txt_keyword->text();
     CustomerList customerList = Connection::getConnection()->getCustomers(keyword);
 
+    if (customerList.size() > 1) {
+        ui->tbl_customers->setColumnCount(7);
+        ui->tbl_customers->setRowCount(customerList.size());
+    }
+    else {
+        ui->tbl_customers->setColumnCount(1);
+        ui->tbl_customers->setRowCount(1);
+        ui->tbl_customers->setHorizontalHeaderItem(0, new QTableWidgetItem(""));
+        ui->tbl_customers->setVerticalHeaderItem(0, new QTableWidgetItem(""));
+        ui->tbl_customers->setColumnWidth(0, 1000);
+        ui->tbl_customers->setItem(0, 0, new QTableWidgetItem("Müşteri bulunamadı."));
+        return;
+    }
 
-    ui->tbl_customers->setColumnCount(7);
-    ui->tbl_customers->setRowCount(customerList.size());
-
+    ui->tbl_customers->setColumnWidth(0, 30);
     ui->tbl_customers->setHorizontalHeaderItem(0, new QTableWidgetItem("ID"));
     ui->tbl_customers->setHorizontalHeaderItem(1, new QTableWidgetItem("TC"));
     ui->tbl_customers->setHorizontalHeaderItem(2, new QTableWidgetItem("İsim"));
@@ -58,6 +69,13 @@ void CustomerManagementForm::on_btn_exit_clicked()
 
 void CustomerManagementForm::on_btn_new_clicked()
 {
-    CustomerCreationForm *form = new CustomerCreationForm();
+    Customer *c = new Customer;
+    CustomerEditForm *form = new CustomerEditForm(c);
+    form->setIsNew(true);
     form->show();
+}
+
+void CustomerManagementForm::on_btn_edit_clicked()
+{
+
 }
