@@ -319,7 +319,20 @@ Shipment *Connection::updateShipment(Shipment *s)
 
 CityList Connection::getCities(QString value)
 {
-
+    QSqlQuery q;
+    q.prepare("select * from cities where name like ?");
+    q.bindValue(0, StringHelper::sqlHasLike(value));
+    q.exec();
+    CityList cities;
+    while (q.next()) {
+        City *c = new City();
+        c->setId(q.value(0).toInt());
+        c->setName(q.value(1).toString());
+        cities.append(c);
+    }
+    if (cities.isEmpty())
+        cities.append(new City);
+    return cities;
 }
 
 CustomerList Connection::getCustomers(QString value)
