@@ -71,7 +71,7 @@ void CustomerManagementForm::on_btn_exit_clicked()
 
 void CustomerManagementForm::on_btn_new_clicked()
 {
-    CustomerEditForm *form = new CustomerEditForm(m_customer);
+    CustomerEditForm *form = new CustomerEditForm(new Customer);
     form->setIsNew(true);
     form->show();
 }
