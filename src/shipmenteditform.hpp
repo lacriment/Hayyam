@@ -43,6 +43,8 @@ private slots:
 
     void on_btn_receiving_office_clicked();
 
+    void on_btn_apply_clicked();
+
 private:
     Ui::ShipmentEditForm *ui;
 
@@ -50,6 +52,8 @@ private:
     Shipment *m_shipment;
     CustomerSelectionForm *m_customerSelectionForm;
     OfficeSelectionForm *m_officeSelectionForm;
+
+    void clearForm();
 
 };
 

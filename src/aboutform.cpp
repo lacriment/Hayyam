@@ -10,7 +10,7 @@ AboutForm::AboutForm(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->txt_about->setReadOnly(true);
-    ui->txt_about->setHtml(StringHelper::flattenStringList(FileHelper::fileToString("../about.html")));
+    ui->txt_about->setHtml(StringHelper::flattenStringList(FileHelper::fileToString("about.html")));
 }
 
 AboutForm::~AboutForm()

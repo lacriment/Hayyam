@@ -14,7 +14,7 @@ Connection::Connection(QObject *parent) : QObject(parent)
         m_db.setDatabaseName(db_filename);
         m_db.open();
         qDebug() << "Database created successfully!";
-        QStringList qList = FileHelper::fileToString("../database.sql");
+        QStringList qList = FileHelper::fileToString("database.sql");
         foreach (QString q, qList) {
             m_db.exec(q);
         }
@@ -29,7 +29,7 @@ Connection::Connection(QObject *parent) : QObject(parent)
 
 void Connection::seed()
 {
-    QStringList qList = FileHelper::fileToString("../seeds.sql");
+    QStringList qList = FileHelper::fileToString("seeds.sql");
     foreach (QString q, qList) {
         m_db.exec(q);
     }
@@ -514,7 +514,7 @@ Shipment *Connection::createShipment(Shipment *s)
     QSqlQuery q;
     q.prepare("insert into shipments (length, width, height, weight,\
               sending_customer_id, receiving_customer_id, payment_type,\
-              amount, status, sending_office_id, receiving_office_id)"\
+              amount, status, sending_office_id, receiving_office_id) values(?, ?, ?, ?, ?, ?, ? ,? ,? ,?, ?)"\
             );
     q.bindValue(0, s->getLength());
     q.bindValue(1, s->getWidth());

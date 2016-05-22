@@ -16,24 +16,10 @@
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="1" column="1">
     <layout class="QGridLayout" name="gridLayout">
-     <item row="2" column="0">
-      <widget class="QLabel" name="lbl_receiver">
+     <item row="2" column="1">
+      <widget class="QPushButton" name="btn_receiving_customer">
        <property name="text">
-        <string>Alıcı</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0">
-      <widget class="QLabel" name="lbl_receiving_office">
-       <property name="text">
-        <string>Alıcı Ofis</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="lbl_sender">
-       <property name="text">
-        <string>Gönderen:</string>
+        <string>Müşteri Seçiniz...</string>
        </property>
       </widget>
      </item>
@@ -97,8 +83,12 @@
        </item>
       </layout>
      </item>
-     <item row="6" column="0">
-      <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+     <item row="2" column="0">
+      <widget class="QLabel" name="lbl_receiver">
+       <property name="text">
+        <string>Alıcı</string>
+       </property>
+      </widget>
      </item>
      <item row="3" column="0">
       <widget class="QLabel" name="lbl_payment_type">
@@ -107,21 +97,14 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QPushButton" name="btn_sending_customer">
+     <item row="1" column="0">
+      <widget class="QLabel" name="lbl_sender">
        <property name="text">
-        <string>Müşteri Seçiniz...</string>
+        <string>Gönderen:</string>
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
-      <widget class="QPushButton" name="btn_sending_office">
-       <property name="text">
-        <string>Ofis Seçiniz...</string>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="1">
+     <item row="7" column="1">
       <layout class="QHBoxLayout" name="horizontalLayout_4">
        <item>
         <widget class="QPushButton" name="btn_cancel">
@@ -131,7 +114,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_3">
+        <widget class="QPushButton" name="btn_apply">
          <property name="text">
           <string>Onayla</string>
          </property>
@@ -152,13 +135,6 @@
        </property>
       </widget>
      </item>
-     <item row="5" column="1">
-      <widget class="QPushButton" name="btn_receiving_office">
-       <property name="text">
-        <string>Ofis Seçiniz...</string>
-       </property>
-      </widget>
-     </item>
      <item row="4" column="0">
       <widget class="QLabel" name="lbl_sending_office">
        <property name="text">
@@ -166,8 +142,22 @@
        </property>
       </widget>
      </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="lbl_receiving_office">
+       <property name="text">
+        <string>Alıcı Ofis</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QPushButton" name="btn_receiving_office">
+       <property name="text">
+        <string>Ofis Seçiniz...</string>
+       </property>
+      </widget>
+     </item>
      <item row="3" column="1">
-      <widget class="QComboBox" name="btn_payment_type">
+      <widget class="QComboBox" name="cb_payment_type">
        <item>
         <property name="text">
          <string>Gönderici Ödemeli</string>
@@ -180,10 +170,38 @@
        </item>
       </widget>
      </item>
-     <item row="2" column="1">
-      <widget class="QPushButton" name="btn_receiving_customer">
+     <item row="7" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="btn_sending_customer">
        <property name="text">
         <string>Müşteri Seçiniz...</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QPushButton" name="btn_sending_office">
+       <property name="text">
+        <string>Ofis Seçiniz...</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLabel" name="lbl_status">
+       <property name="font">
+        <font>
+         <family>Lucida Sans</family>
+         <pointsize>8</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>İşleminizi onaylayın.</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>
@@ -198,7 +216,7 @@
   <tabstop>txt_weight</tabstop>
   <tabstop>btn_sending_customer</tabstop>
   <tabstop>btn_receiving_customer</tabstop>
-  <tabstop>btn_payment_type</tabstop>
+  <tabstop>cb_payment_type</tabstop>
   <tabstop>btn_sending_office</tabstop>
   <tabstop>btn_receiving_office</tabstop>
  </tabstops>

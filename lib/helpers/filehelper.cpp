@@ -11,6 +11,7 @@ FileHelper::FileHelper(QObject *parent) : QObject(parent)
 
 QStringList FileHelper::fileToString(QString path)
 {
+    path.prepend("../../Hayyam/");
     QFile inputFile(path);
     QString text;
     if (inputFile.open(QIODevice::ReadOnly))

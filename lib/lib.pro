@@ -11,7 +11,7 @@ TEMPLATE = lib
 
 DEFINES += LIB_LIBRARY
 
-SOURCES += library.cpp \
+SOURCES += \
     models/customer.cpp \
     models/shipment.cpp \
     models/city.cpp \
@@ -19,7 +19,8 @@ SOURCES += library.cpp \
     models/distance.cpp \
     db/connection.cpp \
     helpers/filehelper.cpp \
-    helpers/stringhelper.cpp
+    helpers/stringhelper.cpp \
+    algorithm/pricing.cpp
 
 HEADERS += library.hpp\
         lib_global.hpp \
@@ -30,7 +31,9 @@ HEADERS += library.hpp\
     models/distance.hpp \
     db/connection.hpp \
     helpers/filehelper.hpp \
-    helpers/stringhelper.hpp
+    helpers/stringhelper.hpp \
+    algorithm/graph.hpp \
+    algorithm/pricing.hpp
 
 unix {
     target.path = /usr/lib

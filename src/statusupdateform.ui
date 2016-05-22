@@ -230,7 +230,7 @@
        </property>
        <item>
         <property name="text">
-         <string>Hazırlanıyor</string>
+         <string>Hazırlanıyor.</string>
         </property>
        </item>
        <item>

@@ -2,6 +2,7 @@
 #include "ui_shipmenteditform.h"
 
 #include "customerselectionform.hpp"
+#include "../lib/algorithm/pricing.hpp"
 
 #include <QDebug>
 
@@ -13,7 +14,17 @@ ShipmentEditForm::ShipmentEditForm(Shipment *shipment, QWidget *parent) :
 
     m_shipment = shipment;
 
-
+    if (isNew) {
+        ui->txt_width->setText(QString::number(m_shipment->getWidth()));
+        ui->txt_height->setText(QString::number(m_shipment->getHeight()));
+        ui->txt_weight->setText(QString::number(m_shipment->getWeight()));
+        ui->txt_length->setText(QString::number(m_shipment->getLength()));
+        ui->btn_sending_customer->setText(m_shipment->getSendingCustomer()->getName());
+        ui->btn_receiving_customer->setText(m_shipment->getReceivingCustomer()->getName());
+        ui->cb_payment_type->setCurrentIndex(m_shipment->getPaymentType());
+        ui->btn_sending_office->setText(m_shipment->getSendingOffice()->getName());
+        ui->btn_receiving_office->setText(m_shipment->getReceivingOffice()->getName());
+    }
 }
 
 ShipmentEditForm::~ShipmentEditForm()
@@ -74,7 +85,6 @@ void ShipmentEditForm::receiveFormDataReceivingCustomer(Customer *c)
 
 void ShipmentEditForm::receiveFormDataSendingOffice(Office *o)
 {
-    qDebug() << o->getName();
     ui->btn_sending_office->setText(o->getName());
     m_shipment->setSendingOffice(o);
 }
@@ -109,14 +119,34 @@ void ShipmentEditForm::on_btn_receiving_office_clicked()
             this, SLOT(receiveFormDataReceivingOffice(Office*)));
 }
 
-void ShipmentEditForm::on_pushButton_3_clicked()
+void ShipmentEditForm::clearForm()
 {
+    ui->txt_height->clear();
+    ui->txt_weight->clear();
+    ui->txt_length->clear();
+    ui->txt_width->clear();
+    ui->cb_payment_type->setCurrentIndex(0);
+    ui->btn_receiving_customer->setText("Seçiniz..");
+    ui->btn_sending_customer->setText("Seçiniz..");
+    ui->btn_receiving_office->setText("Seçiniz..");
+    ui->btn_sending_office->setText("Seçiniz..");
+}
+
+void ShipmentEditForm::on_btn_apply_clicked()
+{
+    m_shipment->setWidth(ui->txt_width->text().toInt());
+    m_shipment->setHeight(ui->txt_height->text().toInt());
+    m_shipment->setWeight(ui->txt_weight->text().toInt());
+    m_shipment->setLength(ui->txt_length->text().toInt());
+    m_shipment->setPaymentType(ui->cb_payment_type->currentIndex());
     if (isNew) {
+        m_shipment->setStatus("Hazırlanıyor.");
+        m_shipment->setAmount(Pricing::calculateAmount(m_shipment));
         Connection::getConnection()->createShipment(m_shipment);
-        //ui->lbl_status->setText("Kayıt Oluşturuldu!");
-        //clearForm();
+        ui->lbl_status->setText("Kayıt Oluşturuldu!");
+        clearForm();
     } else {
         Connection::getConnection()->updateShipment(m_shipment);
-        //ui->lbl_status->setText("Kayıt Güncellendi!");
+        ui->lbl_status->setText("Kayıt Güncellendi!");
     }
 }

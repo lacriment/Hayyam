@@ -29,7 +29,7 @@ void ShipmentManagementForm::on_btn_search_clicked()
     QString keyword = ui->txt_keyword->text();
     ShipmentList shipmentList = Connection::getConnection()->getShipments(keyword);
 
-    if (shipmentList.first()->getId() != 0) {
+    if (shipmentList.first()->getAmount() != 0) {
         ui->tbl_shipments->setColumnCount(3);
         ui->tbl_shipments->setRowCount(shipmentList.size());
     }
@@ -71,20 +71,24 @@ void ShipmentManagementForm::on_btn_exit_clicked()
 void ShipmentManagementForm::on_btn_delete_clicked()
 {
     QModelIndex currentIndex = ui->tbl_shipments->currentIndex();
-    int id = ui->tbl_shipments->item(currentIndex.row(), 0)->text().toInt();
-    Shipment *shipment = Connection::getConnection()->getShipment(id);
+    if (currentIndex.isValid()) {
+        int id = ui->tbl_shipments->item(currentIndex.row(), 0)->text().toInt();
+        Shipment *shipment = Connection::getConnection()->getShipment(id);
 
-    QMessageBox msgBox(QMessageBox::Question,
-                tr("Silmek istediğinizden emin misiniz?"),
-                tr("Silmek istediğinizden emin misiniz?"),
-                QMessageBox::Yes | QMessageBox::No,
-                this);
-    msgBox.setButtonText(QMessageBox::Yes, tr("Evet"));
-    msgBox.setButtonText(QMessageBox::No, tr("Hayır"));
-    if (msgBox.exec() == QMessageBox::Yes) {
-        Connection::getConnection()->deleteShipment(shipment);
-        ui->lbl_status->setText("Kargo silindi!");
-        on_btn_search_clicked();
+        QMessageBox msgBox(QMessageBox::Question,
+                    tr("Silmek istediğinizden emin misiniz?"),
+                    tr("Silmek istediğinizden emin misiniz?"),
+                    QMessageBox::Yes | QMessageBox::No,
+                    this);
+        msgBox.setButtonText(QMessageBox::Yes, tr("Evet"));
+        msgBox.setButtonText(QMessageBox::No, tr("Hayır"));
+        if (msgBox.exec() == QMessageBox::Yes) {
+            Connection::getConnection()->deleteShipment(shipment);
+            ui->lbl_status->setText("Kargo silindi!");
+            on_btn_search_clicked();
+        }
+    } else {
+        QMessageBox(QMessageBox::Information, "Uyarı", "Silmek için bir hücre veya satır seçin!").exec();
     }
 }
 
@@ -93,5 +97,29 @@ void ShipmentManagementForm::on_btn_new_clicked()
     Shipment *s = new Shipment();
     ShipmentEditForm *form = new ShipmentEditForm(s);
     form->setIsNew(true);
+    form->show();
+}
+
+void ShipmentManagementForm::on_btn_edit_clicked()
+{
+    QModelIndex currentIndex = ui->tbl_shipments->currentIndex();
+    if (currentIndex.isValid()) {
+        QModelIndex currentIndex = ui->tbl_shipments->currentIndex();
+        int id = ui->tbl_shipments->item(currentIndex.row(), 0)->text().toInt();
+        Shipment *shipment = Connection::getConnection()->getShipment(id);
+        ShipmentEditForm *form = new ShipmentEditForm(shipment);
+        form->setIsNew(false);
+        form->show();
+    } else {
+        QMessageBox(QMessageBox::Information, "Uyarı", "Düzenlemek için bir hücre veya satır seçin!").exec();
+    }
+}
+
+void ShipmentManagementForm::on_tbl_shipments_cellDoubleClicked(int row)
+{
+    int id = ui->tbl_shipments->item(row, 0)->text().toInt();
+    Shipment *shipment = Connection::getConnection()->getShipment(id);
+    ShipmentEditForm *form = new ShipmentEditForm(shipment);
+    form->setIsNew(false);
     form->show();
 }

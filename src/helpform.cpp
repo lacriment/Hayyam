@@ -10,7 +10,7 @@ HelpForm::HelpForm(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->txt_help->setReadOnly(true);
-    ui->txt_help->setHtml(StringHelper::flattenStringList(FileHelper::fileToString("../help.html")));
+    ui->txt_help->setHtml(StringHelper::flattenStringList(FileHelper::fileToString("help.html")));
 }
 
 HelpForm::~HelpForm()

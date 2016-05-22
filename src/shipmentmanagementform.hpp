@@ -24,6 +24,10 @@ private slots:
 
     void on_btn_new_clicked();
 
+    void on_btn_edit_clicked();
+
+    void on_tbl_shipments_cellDoubleClicked(int row);
+
 private:
     Ui::ShipmentManagementForm *ui;
 };
