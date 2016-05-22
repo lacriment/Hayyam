@@ -16,7 +16,60 @@
   <layout class="QGridLayout" name="gridLayout_3">
    <item row="0" column="0">
     <layout class="QGridLayout" name="gridLayout_2">
-     <item row="2" column="0">
+     <item row="7" column="0">
+      <widget class="QPushButton" name="btn_exit">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Kapat</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QPushButton" name="btn_onayla">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Onayla</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="lbl_done">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Lucida Sans</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Lütfen işleminizi onaylayın.</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
       <layout class="QGridLayout" name="gridLayout">
        <item row="1" column="2">
         <widget class="QLabel" name="lbl_receiver">
@@ -144,20 +197,17 @@
        </item>
       </layout>
      </item>
-     <item row="4" column="0">
-      <widget class="QPushButton" name="btn_onayla">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>30</height>
-        </size>
+     <item row="1" column="0">
+      <widget class="QLineEdit" name="txt_trackingCode">
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
-       <property name="text">
-        <string>Onayla</string>
+       <property name="placeholderText">
+        <string>Takip Kodu</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
+     <item row="2" column="0">
       <widget class="QPushButton" name="btn_find">
        <property name="minimumSize">
         <size>
@@ -170,17 +220,7 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="0">
-      <widget class="QLineEdit" name="txt_trackingCode">
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="placeholderText">
-        <string>Takip Kodu</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
+     <item row="4" column="0">
       <widget class="QComboBox" name="cb_status">
        <property name="minimumSize">
         <size>
@@ -225,43 +265,18 @@
        </item>
       </widget>
      </item>
-     <item row="5" column="0">
-      <widget class="QLabel" name="lbl_done">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>30</height>
-        </size>
-       </property>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_2">
        <property name="font">
         <font>
-         <family>Lucida Sans</family>
-         <pointsize>10</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
+         <pointsize>8</pointsize>
         </font>
        </property>
        <property name="text">
-        <string>Lütfen işleminizi onaylayın.</string>
+        <string>Takip Kodunu Giriniz</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="0">
-      <widget class="QPushButton" name="btn_exit">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>Kapat</string>
        </property>
       </widget>
      </item>

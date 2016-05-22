@@ -19,7 +19,10 @@ SOURCES += main.cpp\
     helpform.cpp \
     customermanagementform.cpp \
     customereditform.cpp \
-    shipmentmanagementform.cpp
+    shipmentmanagementform.cpp \
+    shipmenteditform.cpp \
+    customerselectionform.cpp \
+    officeselectionform.cpp
 
 HEADERS  += app.hpp \
     statusupdateform.hpp \
@@ -27,7 +30,10 @@ HEADERS  += app.hpp \
     helpform.hpp \
     customermanagementform.hpp \
     customereditform.hpp \
-    shipmentmanagementform.hpp
+    shipmentmanagementform.hpp \
+    shipmenteditform.hpp \
+    customerselectionform.hpp \
+    officeselectionform.hpp
 
 FORMS    += app.ui \
     statusupdateform.ui \
@@ -35,7 +41,10 @@ FORMS    += app.ui \
     helpform.ui \
     customermanagementform.ui \
     customereditform.ui \
-    shipmentmanagementform.ui
+    shipmentmanagementform.ui \
+    shipmenteditform.ui \
+    customerselectionform.ui \
+    officeselectionform.ui
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../lib/release/ -llib
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../lib/debug/ -llib

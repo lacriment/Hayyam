@@ -57,6 +57,7 @@ public slots:
     CustomerList getCustomers(QString value);
     DistanceList getDistances();
     OfficeList getOffices(QString value);
+    OfficeList getOfficesByCityId(int value);
     ShipmentList getShipments(QString value);
 
     City *createCity(City *c);

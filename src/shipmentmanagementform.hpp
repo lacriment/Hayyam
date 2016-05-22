@@ -22,6 +22,8 @@ private slots:
 
     void on_btn_delete_clicked();
 
+    void on_btn_new_clicked();
+
 private:
     Ui::ShipmentManagementForm *ui;
 };

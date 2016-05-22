@@ -5,6 +5,10 @@
 #include "../lib/models/shipment.hpp"
 #include "../lib/helpers/stringhelper.hpp"
 
+#include "shipmenteditform.hpp"
+#include "customermanagementform.hpp"
+#include "customerselectionform.hpp"
+
 #include <QTableWidgetItem>
 #include <QMessageBox>
 
@@ -82,4 +86,12 @@ void ShipmentManagementForm::on_btn_delete_clicked()
         ui->lbl_status->setText("Kargo silindi!");
         on_btn_search_clicked();
     }
+}
+
+void ShipmentManagementForm::on_btn_new_clicked()
+{
+    Shipment *s = new Shipment();
+    ShipmentEditForm *form = new ShipmentEditForm(s);
+    form->setIsNew(true);
+    form->show();
 }

@@ -64,7 +64,7 @@
      <item row="5" column="0">
       <widget class="QPushButton" name="btn_exit">
        <property name="text">
-        <string>Çıkış</string>
+        <string>İptal</string>
        </property>
       </widget>
      </item>

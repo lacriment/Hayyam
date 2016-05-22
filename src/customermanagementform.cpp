@@ -9,11 +9,13 @@
 #include <QTableWidgetItem>
 #include <QMessageBox>
 
-CustomerManagementForm::CustomerManagementForm(QWidget *parent) :
+CustomerManagementForm::CustomerManagementForm(Customer *customer, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::CustomerManagementForm)
 {
     ui->setupUi(this);
+
+    m_customer = customer;
 }
 
 CustomerManagementForm::~CustomerManagementForm()
@@ -26,7 +28,7 @@ void CustomerManagementForm::on_btn_search_clicked()
     QString keyword = ui->txt_keyword->text();
     CustomerList customerList = Connection::getConnection()->getCustomers(keyword);
 
-    if (customerList.size() > 1) {
+    if (customerList.first()->getId() != 0) {
         ui->tbl_customers->setColumnCount(7);
         ui->tbl_customers->setRowCount(customerList.size());
     }
@@ -69,8 +71,7 @@ void CustomerManagementForm::on_btn_exit_clicked()
 
 void CustomerManagementForm::on_btn_new_clicked()
 {
-    Customer *c = new Customer;
-    CustomerEditForm *form = new CustomerEditForm(c);
+    CustomerEditForm *form = new CustomerEditForm(m_customer);
     form->setIsNew(true);
     form->show();
 }
@@ -79,8 +80,8 @@ void CustomerManagementForm::on_btn_edit_clicked()
 {
     QModelIndex currentIndex = ui->tbl_customers->currentIndex();
     int id = ui->tbl_customers->item(currentIndex.row(), 0)->text().toInt();
-    Customer *customer = Connection::getConnection()->getCustomer(id);
-    CustomerEditForm *form = new CustomerEditForm(customer);
+    m_customer = Connection::getConnection()->getCustomer(id);
+    CustomerEditForm *form = new CustomerEditForm(m_customer);
     form->setIsNew(false);
     form->show();
 }
@@ -89,7 +90,7 @@ void CustomerManagementForm::on_btn_delete_clicked()
 {
     QModelIndex currentIndex = ui->tbl_customers->currentIndex();
     int id = ui->tbl_customers->item(currentIndex.row(), 0)->text().toInt();
-    Customer *customer = Connection::getConnection()->getCustomer(id);
+    m_customer = Connection::getConnection()->getCustomer(id);
 
     QMessageBox msgBox(QMessageBox::Question,
                 tr("Silmek istediğinizden emin misiniz?"),
@@ -99,8 +100,17 @@ void CustomerManagementForm::on_btn_delete_clicked()
     msgBox.setButtonText(QMessageBox::Yes, tr("Evet"));
     msgBox.setButtonText(QMessageBox::No, tr("Hayır"));
     if (msgBox.exec() == QMessageBox::Yes) {
-        Connection::getConnection()->deleteCustomer(customer);
+        Connection::getConnection()->deleteCustomer(m_customer);
         ui->lbl_status->setText("Müşteri silindi!");
         on_btn_search_clicked();
     }
+}
+
+void CustomerManagementForm::on_tbl_customers_cellDoubleClicked(int row)
+{
+    int id = ui->tbl_customers->item(row, 0)->text().toInt();
+    m_customer = Connection::getConnection()->getCustomer(id);
+    CustomerEditForm *form = new CustomerEditForm(m_customer);
+    form->setIsNew(false);
+    form->show();
 }

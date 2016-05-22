@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ShipmentEditForm</class>
+ <widget class="QDialog" name="ShipmentEditForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>399</width>
+    <height>229</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Kargo Bilgileri</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="1" column="1">
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="2" column="0">
+      <widget class="QLabel" name="lbl_receiver">
+       <property name="text">
+        <string>Alıcı</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="lbl_receiving_office">
+       <property name="text">
+        <string>Alıcı Ofis</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="lbl_sender">
+       <property name="text">
+        <string>Gönderen:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QLineEdit" name="txt_length">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="placeholderText">
+            <string>Uzunluk</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="txt_width">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="placeholderText">
+            <string>Genişlik</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="txt_height">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="placeholderText">
+            <string>Yükseklik</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="txt_weight">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="placeholderText">
+            <string>Ağırlık</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item row="6" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="lbl_payment_type">
+       <property name="text">
+        <string>Ödeme Tipi</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="btn_sending_customer">
+       <property name="text">
+        <string>Müşteri Seçiniz...</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QPushButton" name="btn_sending_office">
+       <property name="text">
+        <string>Ofis Seçiniz...</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QPushButton" name="btn_cancel">
+         <property name="text">
+          <string>İptal</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_3">
+         <property name="text">
+          <string>Onayla</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="lbl_sizes">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Ölçüler:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QPushButton" name="btn_receiving_office">
+       <property name="text">
+        <string>Ofis Seçiniz...</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="lbl_sending_office">
+       <property name="text">
+        <string>Gönderici Ofis</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QComboBox" name="btn_payment_type">
+       <item>
+        <property name="text">
+         <string>Gönderici Ödemeli</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Karşı Ödemeli</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QPushButton" name="btn_receiving_customer">
+       <property name="text">
+        <string>Müşteri Seçiniz...</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <tabstops>
+  <tabstop>txt_length</tabstop>
+  <tabstop>txt_width</tabstop>
+  <tabstop>txt_height</tabstop>
+  <tabstop>txt_weight</tabstop>
+  <tabstop>btn_sending_customer</tabstop>
+  <tabstop>btn_receiving_customer</tabstop>
+  <tabstop>btn_payment_type</tabstop>
+  <tabstop>btn_sending_office</tabstop>
+  <tabstop>btn_receiving_office</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

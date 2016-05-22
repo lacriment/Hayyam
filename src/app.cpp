@@ -51,7 +51,7 @@ void App::on_btn_help_clicked()
 
 void App::on_btn_customerInfo_clicked()
 {
-    CustomerManagementForm *form = new CustomerManagementForm();
+    CustomerManagementForm *form = new CustomerManagementForm(new Customer);
     form->show();
 }
 
