@@ -14,8 +14,16 @@ CustomerEditForm::CustomerEditForm(Customer *customer, QWidget *parent) :
 
     // Lambda Expressions Rocks
     std::for_each(cities.begin(), cities.end(), [&cityList] (City *city) { cityList.append(city->getName()); });
-
     ui->cb_city->addItems(cityList);
+
+    if (!isNew) {
+        ui->txt_name->setText(m_customer->getName());
+        ui->txt_surname->setText(m_customer->getSurname());
+        ui->txt_tc->setText(m_customer->getTc());
+        ui->txt_phone->setText(m_customer->getPhone());
+        ui->txt_address->setText(m_customer->getAddress());
+        ui->cb_city->setCurrentText(m_customer->getCity()->getName());
+    }
 
     if (m_customer != NULL) {
           connect(ui->txt_name, SIGNAL(textEdited(QString)), m_customer, SLOT(setName(QString)));
@@ -59,6 +67,7 @@ void CustomerEditForm::on_btn_save_clicked()
         clearForm();
     } else {
         Connection::getConnection()->updateCustomer(m_customer);
+        ui->lbl_status->setText("Kayıt Güncellendi!");
     }
 }
 

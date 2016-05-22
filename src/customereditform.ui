@@ -143,6 +143,9 @@
        </item>
       </layout>
      </item>
+     <item row="5" column="1">
+      <widget class="QTextEdit" name="txt_address"/>
+     </item>
      <item row="3" column="0">
       <spacer name="horizontalSpacer">
        <property name="orientation">
@@ -171,9 +174,6 @@
         <string>TC</string>
        </property>
       </widget>
-     </item>
-     <item row="5" column="1">
-      <widget class="QTextEdit" name="txt_address"/>
      </item>
     </layout>
    </item>

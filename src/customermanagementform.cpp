@@ -7,6 +7,7 @@
 #include "customereditform.hpp"
 
 #include <QTableWidgetItem>
+#include <QMessageBox>
 
 CustomerManagementForm::CustomerManagementForm(QWidget *parent) :
     QDialog(parent),
@@ -77,5 +78,31 @@ void CustomerManagementForm::on_btn_new_clicked()
 
 void CustomerManagementForm::on_btn_edit_clicked()
 {
+    QModelIndex currentIndex = ui->tbl_customers->currentIndex();
+    int id = ui->tbl_customers->item(currentIndex.row(), 0)->text().toInt();
+    Customer *customer = Connection::getConnection()->getCustomer(id);
+    CustomerEditForm *form = new CustomerEditForm(customer);
+    form->setIsNew(false);
+    form->show();
+}
+
+void CustomerManagementForm::on_btn_delete_clicked()
+{
+    QModelIndex currentIndex = ui->tbl_customers->currentIndex();
+    int id = ui->tbl_customers->item(currentIndex.row(), 0)->text().toInt();
+    Customer *customer = Connection::getConnection()->getCustomer(id);
+
+    QMessageBox msgBox(QMessageBox::Question,
+                tr("Silmek istediğinizden emin misiniz?"),
+                tr("Silmek istediğinizden emin misiniz?"),
+                QMessageBox::Yes | QMessageBox::No,
+                this);
+    msgBox.setButtonText(QMessageBox::Yes, tr("Evet"));
+    msgBox.setButtonText(QMessageBox::No, tr("Hayır"));
+    if (msgBox.exec() == QMessageBox::Yes) {
+        // Remove customer
+    } else {
+        // Back to list
+    }
 
 }
