@@ -10,7 +10,7 @@ public:
     explicit StringHelper(QObject *parent = 0);
 
     template <class T>
-    static QString concatStrWithWhitespace(std::initializer_list<T> list, QString seperator)
+    static QString concatStrWithSep(std::initializer_list<T> list, QString seperator)
     {
         QString output;
         for( auto elem : list )

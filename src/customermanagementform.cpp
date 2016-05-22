@@ -60,7 +60,6 @@ void CustomerManagementForm::on_btn_search_clicked()
         ui->tbl_customers->setItem(i, 6, new QTableWidgetItem(c->getAddress()));
         i++;
     }
-
 }
 
 void CustomerManagementForm::on_btn_exit_clicked()
@@ -100,9 +99,8 @@ void CustomerManagementForm::on_btn_delete_clicked()
     msgBox.setButtonText(QMessageBox::Yes, tr("Evet"));
     msgBox.setButtonText(QMessageBox::No, tr("Hayır"));
     if (msgBox.exec() == QMessageBox::Yes) {
-        // Remove customer
-    } else {
-        // Back to list
+        Connection::getConnection()->deleteCustomer(customer);
+        ui->lbl_status->setText("Müşteri silindi!");
+        on_btn_search_clicked();
     }
-
 }

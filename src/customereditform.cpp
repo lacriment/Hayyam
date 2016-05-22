@@ -36,7 +36,7 @@ CustomerEditForm::CustomerEditForm(Customer *customer, QWidget *parent) :
           });
 
           // Lambdas Rocks AGAIN !!!
-          // Burada Qt5 ve Lambda fonksiyon kullanamasam, model yapısının tamamen değişmesi gerekiyordu.
+          // Not: Burada Qt5'in yeni connect syntax'ı ve Lambda fonksiyon kullanamasam, model yapısının tamamen değişmesi gerekiyordu.
           connect(ui->cb_city, &QComboBox::currentTextChanged, m_customer,
                   [=]() { m_customer->setCity(
                           Connection::getConnection()->getCities(ui->cb_city->currentText()).first());

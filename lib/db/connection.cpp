@@ -392,10 +392,34 @@ OfficeList Connection::getOffices(QString value)
     return offices;
 }
 
-ShipmentList Connection::getShipments()
+ShipmentList Connection::getShipments(QString value)
 {
+    QSqlQuery q;
+    q.prepare("select * from shipments where id = ?\
+              or sending_customer_id = ? or receiving_customer_id = ?");
+    q.bindValue(0, value.toInt());
+    q.bindValue(1, getCustomers(value).first()->getId());
+    q.bindValue(2, getCustomers(value).first()->getId());
+    q.exec();
     ShipmentList shipments;
-    // TO DO
+    while (q.next()) {
+        Shipment *s = new Shipment();
+        s->setId(q.value(0).toInt());
+        s->setLength(q.value(1).toInt());
+        s->setWidth(q.value(2).toInt());
+        s->setHeight(q.value(3).toInt());
+        s->setWeight(q.value(4).toInt());
+        s->setSendingCustomer(getCustomer(q.value(5).toInt()));
+        s->setReceivingCustomer(getCustomer(q.value(6).toInt()));
+        s->setPaymentType(q.value(7).toInt());
+        s->setAmount(q.value(8).toDouble());
+        s->setStatus(q.value(9).toString());
+        s->setSendingOffice(getOffice(q.value(10).toInt()));
+        s->setReceivingOffice(getOffice(q.value(11).toInt()));
+        shipments.append(s);
+    }
+    if (shipments.isEmpty())
+        shipments.append(new Shipment);
     return shipments;
 }
 

@@ -26,6 +26,8 @@ private slots:
 
     void on_btn_customerInfo_clicked();
 
+    void on_btn_newShipment_clicked();
+
 private:
     Ui::App *ui;
 };

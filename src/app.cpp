@@ -11,6 +11,7 @@
 #include "aboutform.hpp"
 #include "helpform.hpp"
 #include "customermanagementform.hpp"
+#include "shipmentmanagementform.hpp"
 
 App::App(QWidget *parent) :
     QMainWindow(parent),
@@ -51,5 +52,11 @@ void App::on_btn_help_clicked()
 void App::on_btn_customerInfo_clicked()
 {
     CustomerManagementForm *form = new CustomerManagementForm();
+    form->show();
+}
+
+void App::on_btn_newShipment_clicked()
+{
+    ShipmentManagementForm *form = new ShipmentManagementForm();
     form->show();
 }
