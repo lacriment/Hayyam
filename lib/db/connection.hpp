@@ -64,6 +64,12 @@ public slots:
     Distance *createDistance(Distance *d);
     Office *createOffice(Office *o);
     Shipment *createShipment(Shipment *s);
+
+    bool deleteCity(City *city);
+    bool deleteCustomer(Customer *customer);
+    bool deleteDistance(Distance *distance);
+    bool deleteOffice(Office *office);
+    bool deleteShipment(Shipment *shipment);
 };
 
 #endif // CONNECTION_HPP

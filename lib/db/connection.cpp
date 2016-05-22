@@ -491,3 +491,58 @@ Shipment *Connection::createShipment(Shipment *s)
     }
 }
 
+bool Connection::deleteCity(City *city)
+{
+    QSqlQuery q;
+    q.prepare("delete from cities where id = ?");
+    q.bindValue(0, city->getId());
+    q.exec();
+    if (q.lastError().isValid())
+        return false;
+    else return true;
+}
+
+bool Connection::deleteCustomer(Customer *customer)
+{
+    QSqlQuery q;
+    q.prepare("delete from customers where id = ?");
+    q.bindValue(0, customer->getId());
+    q.exec();
+    if (q.lastError().isValid())
+        return false;
+    else return true;
+}
+
+bool Connection::deleteDistance(Distance *distance)
+{
+    QSqlQuery q;
+    q.prepare("delete from distances where id = ?");
+    q.bindValue(0, distance->getId());
+    q.exec();
+    if (q.lastError().isValid())
+        return false;
+    else return true;
+}
+
+bool Connection::deleteOffice(Office *office)
+{
+    QSqlQuery q;
+    q.prepare("delete from offices where id = ?");
+    q.bindValue(0, office->getId());
+    q.exec();
+    if (q.lastError().isValid())
+        return false;
+    else return true;
+}
+
+bool Connection::deleteShipment(Shipment *shipment)
+{
+    QSqlQuery q;
+    q.prepare("delete from shipments where id = ?");
+    q.bindValue(0, shipment->getId());
+    q.exec();
+    if (q.lastError().isValid())
+        return false;
+    else return true;
+}
+
